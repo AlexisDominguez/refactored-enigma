@@ -6,6 +6,7 @@ export const StyledTextArea = styled.textarea`
   border: none;
   padding: ${theme.spacing[1]};
   resize: none;
+  height: 100%;
   &:focus {
     outline: none;
   }
