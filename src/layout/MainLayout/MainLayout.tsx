@@ -3,19 +3,19 @@ import SidePanel from "../SidePanel";
 import MainPanel from "../MainPanel";
 import {
   MainLayoutWrapper,
-  SidePanelWrapper,
-  MainPanelWrapper,
+  MainLayoutSidePanelWrapper,
+  MainLayoutMainPanelWrapper,
 } from "./MainLayoutStyles";
 
 const MainLayout: FC = () => {
   return (
     <MainLayoutWrapper>
-      <SidePanelWrapper>
+      <MainLayoutSidePanelWrapper>
         <SidePanel />
-      </SidePanelWrapper>
-      <MainPanelWrapper>
+      </MainLayoutSidePanelWrapper>
+      <MainLayoutMainPanelWrapper>
         <MainPanel />
-      </MainPanelWrapper>
+      </MainLayoutMainPanelWrapper>
     </MainLayoutWrapper>
   );
 };

@@ -1,7 +1,17 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import { SidePanelWrapper } from "./SidePanelStyles";
+import PortfoliosModule from "../../modules/PortfoliosModule";
+import NotebooksModule from "../../modules/NotebooksModule";
+import NotesModule from "../../modules/NotesModule";
 
 const SidePanel: FC = () => {
-  return <div>SidePanel</div>;
+  return (
+    <SidePanelWrapper>
+      <PortfoliosModule />
+      <NotebooksModule />
+      <NotesModule />
+    </SidePanelWrapper>
+  );
 };
 
 export default SidePanel;

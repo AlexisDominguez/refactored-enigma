@@ -1,7 +1,8 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import NewNoteModule from "../../modules/NewNoteModule";
 
 const MainPanel: FC = () => {
-  return <div>MainPanel</div>;
+  return <NewNoteModule />;
 };
 
 export default MainPanel;

@@ -5,12 +5,11 @@ export const MainLayoutWrapper = styled.section`
   height: 100vh;
 `;
 
-export const SidePanelWrapper = styled.section`
+export const MainLayoutSidePanelWrapper = styled.section`
   display: flex;
-  width: 300px;
 `;
 
-export const MainPanelWrapper = styled.section`
+export const MainLayoutMainPanelWrapper = styled.section`
   display: flex;
   width: 100%;
 `;
