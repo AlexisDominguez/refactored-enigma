@@ -12,6 +12,10 @@ const theme = {
   fontColors: {
     white: "#FFF",
   },
+  borderColors: {
+    primary: "",
+    secondary: "#CCC",
+  },
 };
 
 export type TColorsOptions = "primary" | "secondary";

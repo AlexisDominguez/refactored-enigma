@@ -1,14 +1,14 @@
-import { FC, ReactNode } from "react";
+import { ComponentPropsWithoutRef, FC, ReactNode } from "react";
 import { TColorsOptions } from "../../../theme";
 import { StyledButton } from "./ButtonStyles";
 
-export interface IButtonProps {
+export interface IButtonProps extends ComponentPropsWithoutRef<"button"> {
   children: ReactNode;
   color?: TColorsOptions;
 }
 
-const Button: FC<IButtonProps> = ({ children, color }) => {
-  return <StyledButton color={color}>{children}</StyledButton>;
+const Button: FC<IButtonProps> = ({ children, ...props }) => {
+  return <StyledButton {...props}>{children}</StyledButton>;
 };
 
 export default Button;
