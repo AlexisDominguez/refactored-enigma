@@ -1,11 +1,12 @@
-import { FC } from "react";
+import { ComponentPropsWithoutRef, FC } from "react";
+import { ListItemContainer } from "./ListItemStyles";
 
-export interface IListItemProps {
+export interface IListItemProps extends ComponentPropsWithoutRef<"li"> {
   text: string;
 }
 
-const ListItem: FC<IListItemProps> = ({ text }) => {
-  return <li>{text}</li>;
+const ListItem: FC<IListItemProps> = ({ text, ...props }) => {
+  return <ListItemContainer {...props}>{text}</ListItemContainer>;
 };
 
 export default ListItem;

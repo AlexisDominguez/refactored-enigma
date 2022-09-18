@@ -1,6 +1,7 @@
 const theme = {
   backgroundColors: {
     secondary: "#EEE",
+    gray: "#DDD",
   },
   spacing: {
     1: "1em",
