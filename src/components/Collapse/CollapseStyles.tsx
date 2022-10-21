@@ -10,3 +10,9 @@ export const CollapseTitleContainer = styled.h1`
   align-items: center;
   margin: 0;
 `;
+
+export const CollapseLoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: ${theme.spacing[1]};
+`;

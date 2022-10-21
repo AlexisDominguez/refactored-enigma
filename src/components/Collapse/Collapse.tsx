@@ -1,14 +1,28 @@
 import { useState, FC, ReactNode } from "react";
+import { PuffLoader } from "react-spinners";
 import Button from "../Inputs/Button";
-import { CollapseContainer, CollapseTitleContainer } from "./CollapseStyles";
+import {
+  CollapseContainer,
+  CollapseTitleContainer,
+  CollapseLoaderContainer,
+} from "./CollapseStyles";
 
 export interface ICollapseProps {
   collapseTitle: string;
+  openByDefault?: boolean;
+  isFetching?: boolean;
   children: ReactNode;
 }
 
-const Collapse: FC<ICollapseProps> = ({ collapseTitle, children }) => {
-  const [isCollapseOpen, setIsCollapseOpen] = useState<boolean>(false);
+const Collapse: FC<ICollapseProps> = ({
+  collapseTitle,
+  openByDefault,
+  children,
+  isFetching,
+}) => {
+  const [isCollapseOpen, setIsCollapseOpen] = useState<boolean>(
+    Boolean(openByDefault)
+  );
 
   const handleClick = (): void => {
     setIsCollapseOpen(!isCollapseOpen);
@@ -22,7 +36,22 @@ const Collapse: FC<ICollapseProps> = ({ collapseTitle, children }) => {
           {isCollapseOpen ? "Close" : "Open"}
         </Button>
       </CollapseTitleContainer>
-      {isCollapseOpen && <div>{children}</div>}
+      {isCollapseOpen && (
+        <div>
+          {isFetching === true ? (
+            <CollapseLoaderContainer>
+              <PuffLoader
+                loading={isFetching}
+                size={150}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            </CollapseLoaderContainer>
+          ) : (
+            children
+          )}
+        </div>
+      )}
     </CollapseContainer>
   );
 };
