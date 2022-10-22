@@ -9,6 +9,8 @@ const theme = {
   colors: {
     primary: "#004299",
     secondary: "#EB3823",
+    success: "#14A44D",
+    danger: "#DC4C64",
   },
   fontColors: {
     white: "#FFF",
@@ -19,6 +21,6 @@ const theme = {
   },
 };
 
-export type TColorsOptions = "primary" | "secondary";
+export type TColorsOptions = "primary" | "secondary" | "success" | "danger";
 
 export default theme;

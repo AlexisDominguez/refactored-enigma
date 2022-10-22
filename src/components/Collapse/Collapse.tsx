@@ -1,6 +1,7 @@
 import { useState, FC, ReactNode } from "react";
 import { PuffLoader } from "react-spinners";
 import Button from "../Inputs/Button";
+import { MdOutlineAddCircle, MdExpandMore, MdExpandLess } from "react-icons/md";
 import {
   CollapseContainer,
   CollapseTitleContainer,
@@ -11,6 +12,7 @@ export interface ICollapseProps {
   collapseTitle: string;
   openByDefault?: boolean;
   isFetching?: boolean;
+  addNewOnClick?: () => void;
   children: ReactNode;
 }
 
@@ -19,6 +21,7 @@ const Collapse: FC<ICollapseProps> = ({
   openByDefault,
   children,
   isFetching,
+  addNewOnClick,
 }) => {
   const [isCollapseOpen, setIsCollapseOpen] = useState<boolean>(
     Boolean(openByDefault)
@@ -32,9 +35,14 @@ const Collapse: FC<ICollapseProps> = ({
     <CollapseContainer>
       <CollapseTitleContainer>
         {collapseTitle}
-        <Button color="primary" onClick={handleClick}>
-          {isCollapseOpen ? "Close" : "Open"}
-        </Button>
+        <div>
+          <Button color="primary" onClick={addNewOnClick}>
+            <MdOutlineAddCircle />
+          </Button>
+          <Button color="primary" onClick={handleClick}>
+            {isCollapseOpen ? <MdExpandLess /> : <MdExpandMore />}
+          </Button>
+        </div>
       </CollapseTitleContainer>
       {isCollapseOpen && (
         <div>

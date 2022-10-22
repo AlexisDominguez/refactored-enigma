@@ -4,8 +4,8 @@ import Button from "../../components/Inputs/Button";
 const NewNoteActionsModule: FC = () => {
   return (
     <div>
-      <Button color="primary">Save</Button>
-      <Button color="secondary">Delete</Button>
+      <Button color="success">Save</Button>
+      <Button color="danger">Delete</Button>
     </div>
   );
 };
