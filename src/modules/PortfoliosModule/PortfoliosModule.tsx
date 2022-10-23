@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
-import { useQuery } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 import Collapse from "../../components/Collapse";
 import List from "../../components/List";
 import ListItem from "../../components/ListItem";
-import { getPorfolios } from "../../services/portfolios";
+import { getPorfolios, createPorfolio } from "../../services/portfolios";
 import { IPortfolio } from "../../models/portfolio";
 import Modal from "../../components/AddNewElementModal";
 import toast from "../../utils/toast";
@@ -13,14 +13,25 @@ const PortfoliosModule: FC = () => {
     useState<boolean>(false);
 
   const { data, isFetching } = useQuery("portfolios", getPorfolios);
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation(createPorfolio, {
+    onSuccess: () => {
+      void queryClient.invalidateQueries("portfolios");
+      toast("success", "Portfolio created successfully!");
+    },
+    onError: () => {
+      toast("error", "An error has occurred while creating new portfolio...");
+    },
+  });
 
   const handlePortfolioModalOpen = (): void => {
     setIsPortfoliosModalOpen(!isPortfoliosModalOpen);
   };
 
-  // TODO: Create new portfolio endpoint integration
   const acceptButtonAction = (newElementName: string): void => {
-    toast("success", newElementName);
+    mutation.mutate(newElementName);
+    setIsPortfoliosModalOpen(false);
   };
 
   return (
