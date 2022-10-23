@@ -2,6 +2,13 @@ import { ChangeEvent, FC, useState } from "react";
 import ReactModal from "react-modal";
 import Button from "../Inputs/Button";
 import TextInput from "../Inputs/TextInput";
+import {
+  StyledModalContent,
+  StyledModalOverlay,
+  StyledModalTitle,
+  StyledActionButtonContainer,
+  ButtonCustomStyles,
+} from "./AddNewElementModalStyles";
 
 interface IModal {
   acceptButtonText: string;
@@ -29,18 +36,31 @@ const Modal: FC<IModal> = ({
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       ariaHideApp={false}
+      contentElement={(props, children) => (
+        <StyledModalContent {...props}>{children}</StyledModalContent>
+      )}
+      overlayElement={(props, contentElement) => (
+        <StyledModalOverlay {...props}>{contentElement}</StyledModalOverlay>
+      )}
     >
-      <h1>{modalTitle}</h1>
+      <StyledModalTitle>{modalTitle}</StyledModalTitle>
       <TextInput value={newElementName} onChange={handleNewElementName} />
-      <Button
-        color="success"
-        onClick={() => acceptButtonAction(newElementName)}
-      >
-        {acceptButtonText}
-      </Button>
-      <Button color="danger" onClick={onRequestClose}>
-        Cancel
-      </Button>
+      <StyledActionButtonContainer>
+        <Button
+          color="success"
+          style={ButtonCustomStyles}
+          onClick={() => acceptButtonAction(newElementName)}
+        >
+          {acceptButtonText}
+        </Button>
+        <Button
+          color="danger"
+          style={ButtonCustomStyles}
+          onClick={onRequestClose}
+        >
+          Cancel
+        </Button>
+      </StyledActionButtonContainer>
     </ReactModal>
   );
 };
