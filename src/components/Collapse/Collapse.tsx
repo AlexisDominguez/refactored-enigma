@@ -6,6 +6,7 @@ import {
   CollapseContainer,
   CollapseTitleContainer,
   CollapseLoaderContainer,
+  CollapseButtonContainer,
 } from "./CollapseStyles";
 
 export interface ICollapseProps {
@@ -35,14 +36,14 @@ const Collapse: FC<ICollapseProps> = ({
     <CollapseContainer>
       <CollapseTitleContainer>
         {collapseTitle}
-        <div>
+        <CollapseButtonContainer>
           <Button color="primary" onClick={addNewOnClick}>
             <MdOutlineAddCircle />
           </Button>
           <Button color="primary" onClick={handleClick}>
             {isCollapseOpen ? <MdExpandLess /> : <MdExpandMore />}
           </Button>
-        </div>
+        </CollapseButtonContainer>
       </CollapseTitleContainer>
       {isCollapseOpen && (
         <div>

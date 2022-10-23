@@ -5,6 +5,7 @@ import { StyledButton } from "./ButtonStyles";
 export interface IButtonProps extends ComponentPropsWithoutRef<"button"> {
   children: ReactNode;
   color?: TColorsOptions;
+  noSpacing?: boolean;
 }
 
 const Button: FC<IButtonProps> = ({ children, ...props }) => {

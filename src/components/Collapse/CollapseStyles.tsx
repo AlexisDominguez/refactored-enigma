@@ -11,6 +11,10 @@ export const CollapseTitleContainer = styled.h1`
   margin: 0;
 `;
 
+export const CollapseButtonContainer = styled.div`
+  display: flex;
+`;
+
 export const CollapseLoaderContainer = styled.div`
   display: flex;
   justify-content: center;

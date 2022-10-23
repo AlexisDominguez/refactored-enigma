@@ -4,6 +4,7 @@ import "./index.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { ToastContainer } from "react-toastify";
+import { IconContext } from "react-icons";
 import "react-toastify/dist/ReactToastify.css";
 
 const queryClient = new QueryClient({
@@ -21,7 +22,9 @@ const queryClient = new QueryClient({
 const App: FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <MainLayout />
+      <IconContext.Provider value={{ style: { verticalAlign: "baseline" } }}>
+        <MainLayout />
+      </IconContext.Provider>
       <ReactQueryDevtools initialIsOpen={false} />
       <ToastContainer />
     </QueryClientProvider>

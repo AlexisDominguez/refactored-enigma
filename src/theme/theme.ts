@@ -5,6 +5,7 @@ const theme = {
   },
   spacing: {
     1: "1em",
+    2: "0.5em",
   },
   colors: {
     primary: "#004299",
@@ -18,6 +19,9 @@ const theme = {
   borderColors: {
     primary: "",
     secondary: "#CCC",
+  },
+  shadows: {
+    buttonShadow: "1px 1px 5px rgba(0,0,0,0.40)",
   },
 };
 
