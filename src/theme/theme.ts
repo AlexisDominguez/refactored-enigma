@@ -2,6 +2,7 @@ const theme = {
   backgroundColors: {
     secondary: "#EEE",
     gray: "#DDD",
+    light: "#FFF",
   },
   spacing: {
     1: "1em",
@@ -22,6 +23,7 @@ const theme = {
   },
   shadows: {
     buttonShadow: "1px 1px 5px rgba(0,0,0,0.40)",
+    contextMenuShadow: "1px 1px 5px rgba(0,0,0,0.40)",
   },
 };
 

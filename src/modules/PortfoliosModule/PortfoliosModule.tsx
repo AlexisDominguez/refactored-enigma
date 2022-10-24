@@ -7,6 +7,7 @@ import { getPorfolios, createPorfolio } from "../../services/portfolios";
 import { IPortfolio } from "../../models/portfolio";
 import Modal from "../../components/AddNewElementModal";
 import toast from "../../utils/toast";
+import { IContextMenuOption } from "../../components/ContextMenu";
 
 const PortfoliosModule: FC = () => {
   const [isPortfoliosModalOpen, setIsPortfoliosModalOpen] =
@@ -34,6 +35,10 @@ const PortfoliosModule: FC = () => {
     setIsPortfoliosModalOpen(false);
   };
 
+  const listItemActionsHandler = (option: IContextMenuOption): void => {
+    console.log(option);
+  };
+
   return (
     <Collapse
       collapseTitle="Portfolios"
@@ -43,7 +48,13 @@ const PortfoliosModule: FC = () => {
     >
       <List>
         {data?.data.map((portfolio: IPortfolio) => (
-          <ListItem key={portfolio.id} text={portfolio.name} />
+          <ListItem
+            key={portfolio.id}
+            elementId={portfolio.id}
+            elementType="portfolio"
+            text={portfolio.name}
+            onClickHandler={listItemActionsHandler}
+          />
         ))}
       </List>
       <Modal
